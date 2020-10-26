@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>canvas</title>
+		<style type="text/css">
+			body {
+				margin: 0;
+				padding: 0;
+			}
+			#canvas {
+				border: 1px solid red;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="canvas" width="1000" height="700">
+			你的浏览器不支持画布，请切换浏览器
+		</canvas>
+		
+		<script>
+			// const canvas = document.querySelector('#canvas')
+			// console.log([canvas])
+
+			// const brush = canvas.getContext('2d')
+			// console.log(brush)
+
+			// brush.rect(50,50,300,300) // 方形
+			// brush.fillStyle = 'aqua'
+			// brush.strokeStyle = 'antiquewhite'
+			// brush.lineWidth = 20
+			// brush.stroke()
+			// brush.fill()
+			// brush.beginPath()  //开始路径
+			// brush.moveTo(50,50)	//绘制起点
+			// brush.lineTo(50,300)
+			// brush.lineTo(300,100)
+			// brush.lineTo(300,250)
+			// brush.closePath() //结束路径	
+			// brush.lineCap = 'round'
+			// brush.lineJoin = 'round'
+			// // brush.miterLimit = 1
+			// brush.lineWidth = 10
+			// brush.strokeStyle = 'aqua'
+			// brush.stroke()
+
+			// brush.arc(300,300,100,0,2*Math.PI)  //圆形
+			// brush.fillStyle = 'aqua'
+			// brush.fill()
+			// brush.stroke()
+
+			// brush.font = '50px 微软雅黑'
+			// brush.shadowBlur = 20
+			// brush.shadowColor = 'rgba(0,0,0,1)'
+			// brush.shadowOffsetX = 10
+			// brush.shadowOffsetY = 10
+			// let x = 600
+			// setInterval(() => {
+			// 	brush.clearRect(0, 0, 600, 600)
+			// 	x -= 3
+			// 	if (x < -300) {
+			// 		x = 600
+			// 	}
+			// 	brush.fillText('helloworld', x, 100)
+			// 	brush.strokeText('i do not know', x, 200)
+			// },16)
+			// brush.fillText('helloworld', 100, 100)
+			// brush.strokeText('i do not know', 100, 200)
+
+			// const land = new Image()
+			// land.src = 'img/land.png'
+			// land.onload = function() {
+			// 	brush.drawImage(land,50,50)
+			// }
+			// const shop = new Image()
+			// shop.src = './img/shop.png'
+			// shop.onload = function() {
+			// 	brush.drawImage(shop,250,50)
+			// }
+
+			// canvas.onmousedown = function (e) {
+			// 	const event = e || window.event
+			// 	const x = event.clientX 
+			// 	const y = event.clientY 
+			// 	brush.strokeStyle = 'aqua'
+			// 	brush.lineWidth = 10
+			// 	// brush.beginPath()
+			// 	brush.moveTo(x,y)
+			// 	canvas.onmousemove = function (e){
+			// 		const event = e || window.event
+			// 		const x = event.clientX 
+			// 		const y = event.clientY 
+			// 		brush.lineTo(x,y)
+			// 		brush.stroke()
+			// 	}
+			// 	canvas.onmouseup = function() {
+			// 		canvas.onmousemove = null
+			// 	}
+			// }
+
+			// brush.beginPath()
+			// let x = 0,
+			// 	y = 0,
+			// 	w = 100,
+			// 	h = 100
+			// let speedX = 2, speedY = 2
+			// brush.fillStyle = 'aqua'
+			// brush.fillRect(x,y,w,h)
+			// brush.closePath()
+
+			// function move() {
+			// 	brush.clearRect(0,0,canvas.width,canvas.height)
+			// 	x += speedX
+			// 	if(x > canvas.width - w){
+			// 		speedX *= -1
+			// 	} else if(x < 0) {
+			// 		speedX *= -1
+			// 	}
+			// 	y += speedY
+			// 	// console.log(canvas.height - h, y)
+			// 	if(y >  canvas.height - h){
+			// 		speedY *= -1
+			// 	} else if(y < 0) {
+			// 		speedY *= -1
+			// 	}
+			// 	brush.fillRect(x,y,w,h)
+			// 	window.requestAnimationFrame(move)
+			// }
+			// move()
+
+			// function Ball(x, y, r, speedX, speedY, color) {
+			// 	this.x = x
+			// 	this.y = y
+			// 	this.r = r
+			// 	this.speedX = speedX
+			// 	this.speedY = speedY
+			// 	this.color = color
+			// 	this.draw = function() { // 画圆
+			// 		brush.beginPath()
+			// 		brush.fillStyle = this.color
+			// 		brush.arc(this.x, this.y, this.r, 0, Math.PI * 2)
+			// 		brush.fill()
+			// 	}
+			// 	this.move = function() {
+			// 		this.x += this.speedX
+			// 		if (this.x > canvas.width - this.r) {
+			// 			this.speedX *= -1
+			// 		} else if (this.x < this.r) {
+			// 			this.speedX *= -1
+			// 		}
+			// 		this.y += this.speedY
+			// 		if (this.y > canvas.height - this.r) {
+			// 			this.speedY *= -1
+			// 		} else if (this.y < this.r) {
+			// 			this.speedY *= -1
+			// 		}
+			// 	}
+			// }
+			// function start() {
+			// 	brush.clearRect(0, 0, canvas.width, canvas.height)
+			// 	ball.draw()
+			// 	ball.move()
+			// 	window.requestAnimationFrame(start)
+			// }
+			// let ball = new Ball(50, 50, 50, 2, 2, 'aqua')
+			// start()
+
+			// let img = new Image()
+			// img.src = './img/car.png'
+			// img.onload = function(){
+			// 	move()
+			// }
+			// function move(){
+			// 	brush.save()
+			// 	brush.clearRect(0,0,canvas.width,canvas.height)
+			// 	brush.translate(-x,0)
+			// 	brush.drawImage(img,0,0)
+			// 	brush.drawImage(img,canvas.width,0)
+			// 	x++
+			// 	if(x > canvas.width){
+			// 		x = 0
+			// 	}
+			// 	brush.restore()
+			// 	window.requestAnimationFrame(move)
+			// }
+			
+			// const map = [
+			// 	0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 3,
+			// 	4, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 1,
+			// 	1, 0, 1, 0, 0, 0, 2, 0, 0, 0, 0, 1,
+			// 	1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 2,
+			// 	1, 0, 2, 0, 0, 0, 1, 0, 0, 0, 0, 1,
+			// 	1, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1,
+			// 	1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1,
+			// 	1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1,
+			// 	2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1,
+			// 	1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1,
+			// 	1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1,
+			// 	3, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 4,
+			// ]
+			
+			// 地图
+			// function createMap() {
+			// 	map.forEach((item, index) => {
+			// 		switch (item) {
+			// 			case 1:
+			// 				createBox('aqua', index)
+			// 				break;
+			// 			case 2:
+			// 				createBox('#f56c6c', index)
+			// 				break;
+			// 			case 3:
+			// 				createBox('#999', index)
+			// 				break
+			// 			case 4:
+			// 				createBox('#409eff', index)
+			// 				break
+			// 		}
+			// 	})
+			// }
+			// 创建建筑
+			// function createBox(color, index) {
+			// 	let x = index % 12 * 50 + 50
+			// 	let y = parseInt(index / 12) * 50 + 50
+
+			// 	brush.save()
+			// 	brush.shadowOffsetX = 10
+			// 	brush.shadowOffsetY = 10
+			// 	brush.shadowColor = '#ccc'
+			// 	brush.fillStyle = color
+			// 	brush.fillRect(x, y, 40, 40)
+			// 	brush.restore()
+				
+			// 	brush.save()
+			// 	brush.shadowOffsetX = 2
+			// 	brush.shadowOffsetY = 2
+			// 	brush.shadowColor = '#000'
+			// 	brush.font = '20px 微软雅黑'
+			// 	if(color === '#409eff') {
+			// 		brush.fillText('🚩',x+ 10,y+25)
+			// 	}
+			// 	if(color === '#999') {
+			// 		brush.fillText('💤',x+5,y+25)
+			// 	}
+			// 	if(color === '#f56c6c') {
+			// 		brush.fillText('❓',x+10,y+25)
+			// 	}
+			// 	brush.restore()
+				
+			// }
+		</script>
+		<script src="./js/canvas.js" type="text/javascript" charset="utf-8"></script>
+		<script src="./js/data.js" type="text/javascript" charset="utf-8"></script>
+		<script src="./js/monopoly.js" type="text/javascript" charset="utf-8"></script>
+		<script src="./js/init.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>
