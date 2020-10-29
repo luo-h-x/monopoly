@@ -139,4 +139,4 @@
 
 ## 核心逻辑
 
-![add image](https://github.com/luo-h-x/monopoly/img/monopoly.png)
+![add image](https://github.com/luo-h-x/monopoly/blob/master/img/monoply.png)
