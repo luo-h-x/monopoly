@@ -159,7 +159,7 @@ function showOwner() {
 function showMessage() {
 	players.forEach((item, index) => {
 		clearArea(200 + index * 300, 250, 100, 100)
-		createText(item.name, 200 + index * 300, 250, '20px', '#999', false)
+		createText(item.name, 200 + index * 300, 250, '20px', '#999')
 		createText('￥' + item.money, 200 + index * 300, 280, '20px', '#999', false)
 	})
 }
@@ -206,4 +206,32 @@ function landRank() {
 		createText(level, x - 15, y + 5, '10px', 'red', false)
 	}
 }
+// 轮骰顺序
+function gameSequence() {
+	order = order === 0 ? 1 : 0
+	if (checkStop()) {
+		order = order === 0 ? 1 : 0
+	}
+	if (order === 0) {
+		canvas.addEventListener('click', clickDice)
+		if (!players[order].control) {
+			diceStop()
+		}
+	} else {
+		canvas.removeEventListener('click', clickDice)
+		diceStop()
+	}
+}
+// 判断轮到的下个玩家是否处在停止状态
+function checkStop() {
+	let {
+		name,
+		stop
+	} = players[order]
+	if (stop) {
+		showInfo(`需要休息${stop}天`)
+		players[order].stop -= 1
+		return true
+	}
 
+}
